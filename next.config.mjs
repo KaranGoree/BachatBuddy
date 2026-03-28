@@ -1,32 +1,20 @@
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
-  // Type checking - these are valid in Next.js 16
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  
-  // Image optimization
   images: {
     unoptimized: true,
   },
-  
-  // Output format
   output: 'standalone',
-  
-  // Build optimization
   staticPageGenerationTimeout: 180,
-  
-  // Experimental features (valid in Next.js 16)
   experimental: {
-    optimizePackageImports: ['recharts', 'lucide-react'],
     webpackBuildWorker: true,
   },
-  
-  // Remove these deprecated options:
-  // eslint: { ignoreDuringBuilds: true },  // ❌ REMOVED
-  // telemetry: false,                       // ❌ REMOVED
-  // reactStrictMode: true,                  // ❌ REMOVED (moved to compiler)
-}
+  // Disable ESLint during build (alternative to --no-lint)
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+};
 
-export default nextConfig
+export default nextConfig;
