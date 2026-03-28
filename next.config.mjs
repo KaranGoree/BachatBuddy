@@ -1,14 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Basic config
-  reactStrictMode: true,
-  
-  // Build settings
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
+  // Type checking - these are valid in Next.js 16
   typescript: {
     ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
   
   // Image optimization
@@ -16,28 +11,22 @@ const nextConfig = {
     unoptimized: true,
   },
   
-  // Output
+  // Output format
   output: 'standalone',
   
-  // Increase build timeout
+  // Build optimization
   staticPageGenerationTimeout: 180,
   
-  // Disable Turbopack and use webpack
-  // @ts-ignore
+  // Experimental features (valid in Next.js 16)
   experimental: {
     optimizePackageImports: ['recharts', 'lucide-react'],
-    // Force webpack build
     webpackBuildWorker: true,
   },
   
-  // Remove turbopack config to force webpack
-  // turbopack: {}, // REMOVE THIS
-  
-  // Disable telemetry
-  telemetry: false,
-  
-  trailingSlash: false,
-  productionBrowserSourceMaps: false,
-};
+  // Remove these deprecated options:
+  // eslint: { ignoreDuringBuilds: true },  // ❌ REMOVED
+  // telemetry: false,                       // ❌ REMOVED
+  // reactStrictMode: true,                  // ❌ REMOVED (moved to compiler)
+}
 
-export default nextConfig;
+export default nextConfig
