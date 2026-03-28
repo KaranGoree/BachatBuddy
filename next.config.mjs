@@ -10,8 +10,9 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['recharts', 'lucide-react'],
   },
-  // Add empty turbopack config to silence the warning
+  // Add empty turbopack config
   turbopack: {},
+  // Remove any webpack config if present
 };
 
 export default nextConfig;
