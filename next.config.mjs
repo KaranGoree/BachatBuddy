@@ -10,8 +10,10 @@ const nextConfig = {
   staticPageGenerationTimeout: 180,
   experimental: {
     webpackBuildWorker: true,
+    // Disable the Suspense requirement for useSearchParams
+    missingSuspenseWithCSRBailout: false,
   },
-  // Disable ESLint during build (alternative to --no-lint)
+  // Disable ESLint during build
   eslint: {
     ignoreDuringBuilds: true,
   },
